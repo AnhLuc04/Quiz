@@ -1,8 +1,9 @@
 package com.example.demo.model.user;
 
 
-//import com.example.demo.model.study.Study;
+
 import com.example.demo.model.role.Role;
+import com.example.demo.model.study.Study;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -34,8 +35,8 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
-//    private List<Study> studies = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+    private List<Study> studies = new ArrayList<>();
 
     public Set<Role> getRoles() {
         return roles;
@@ -56,7 +57,7 @@ public class User {
                 ", updatedAt=" + updatedAt +
                 ", isDeleted=" + isDeleted +
                 ", roles=" + roles +
-//                ", studies=" + studies +
+                ", studies=" + studies +
                 '}';
     }
 }
